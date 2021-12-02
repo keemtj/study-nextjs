@@ -1,34 +1,136 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📚 Learn NextJS
 
-## Getting Started
+<details>
+<summary>Index</summary>
 
-First, run the development server:
+📗 What is NextJS [🔗](#-What-is-Nextjs)
 
-```bash
-npm run dev
+📗 Key Features & Benefits [🔗](#-Key-Features-Benefits)
+
+- 📖 Server Side Rendering [🔗](#-Server-Side-Rendering)
+- 📖 File based Routing [🔗](#-File-based-Routing)
+- 📖 Fullstack Capabilities [🔗](#-Fullstack-Capabilities)
+
+📗 New Project [🔗](#-New-Project)
+
+- 📖 Set Up [🔗](#-Set-Up)
+- 📖 Directories [🔗](#-Directories)
+
+📗 Bigger Project [🔗](#-Bigger-Project)
+
+</details>
+
+## 📗 What is NextJS
+
+**React**
+
+- A **Javascript\*** **library\*** for building **user interfaces\***.
+- components, state, props.
+
+**NextJS**
+
+- The **React\*** **Framework\*** for **Production\***
+- NextJS solves common problems and makes building React apps easier.
+- **Framework\*:** Lots of built-in features(e.g routing) that help you solve common problems & clear guidance on how to use those features.
+- **React\*:** You still write React code, you still build React components and use React features(props, state, context, etc.). NextJS just enhances your React apps and adds more features.
+- **Production\*:** There are certain problems which you will need to solve for almost all production-ready React apps: NextJS solves those for you.
+
+## 📗 Key Features & Benefits
+
+### 📖 Server Side Rendering
+
+- Automatic page pre-rendering: Great for SEO and initial load.
+- Blending client-side and server-side: Fetch data on the server and render finished pages.
+
+### 📖 File based Routing
+
+- Define pages and routes with files and folders instead of code.
+- Less code, less work, highly understandable.
+
+### 📖 Fullstack Capabilities
+
+- Easily add backend(server-side) code to your Next/React apps.
+- Storing data, getting data, authentication etc. can be added to your React projects.
+
+## 📗 New project
+
+### 📖 Set Up
+
+```shell
+$ npx create-next-app
 # or
-yarn dev
+$ yarn create next-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```shell
+Need to install the following packages:
+  create-next-app
+Ok to proceed? (y) y
+? What is your project named? > my-app
+...
+Success! Created my-app
+```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### 📖 directories
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- public: NextJS allows us to determine when a page should be pre-rendered.
+- styles: css files
+- pages: file-based routing
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```javascript
+// our-domian.com/
 
-## Learn More
+function HomePage() {
+  return <h1>The Home Page</h1>;
+}
 
-To learn more about Next.js, take a look at the following resources:
+export default HomePage;
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```javascript
+// pages > news > index.js
+// our-domian.com/news
+// a tag: reload
+// Link: SPA
+import Link from "next/link";
+import { Fragment } from "react";
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+function NewsPage() {
+  return (
+    <Fragment>
+      <h1>The News Page</h1>;
+      <ul>
+        <li>
+          <Link href="/news/nextjs-is-a-great-framework">
+            NextJs Is A Great Framework
+          </Link>
+        </li>
+        <li>Something Else</li>
+      </ul>
+    </Fragment>
+  );
+}
 
-## Deploy on Vercel
+export default NewsPage;
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```javascript
+// pages > news > [newsId].js
+// our-domian.com/news/[newsId]
+import { useRouter } from "next/router";
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+function DetailPage() {
+  const router = useRouter();
+
+  const newsId = router.query.newsId;
+
+  // send a request to the backend API
+  // to fetch the news item with newsId
+
+  return <h1>The Detail Page</h1>;
+}
+
+export default DetailPage;
+```
+
+## 📗 Bigger Project
