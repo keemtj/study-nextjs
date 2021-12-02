@@ -5,7 +5,7 @@
 
 📗 What is NextJS [🔗](#-What-is-Nextjs)
 
-📗 Key Features & Benefits [🔗](#-Key-Features-Benefits)
+📗 Key Features and Benefits [🔗](#-Key-Features-and-Benefits)
 
 - 📖 Server Side Rendering [🔗](#-Server-Side-Rendering)
 - 📖 File based Routing [🔗](#-File-based-Routing)
@@ -35,7 +35,7 @@
 - **React\*:** You still write React code, you still build React components and use React features(props, state, context, etc.). NextJS just enhances your React apps and adds more features.
 - **Production\*:** There are certain problems which you will need to solve for almost all production-ready React apps: NextJS solves those for you.
 
-## 📗 Key Features & Benefits
+## 📗 Key Features and Benefits
 
 ### 📖 Server Side Rendering
 
@@ -73,7 +73,7 @@ Success! Created my-app
 
 ### 📖 directories
 
-- public: NextJS allows us to determine when a page should be pre-rendered.
+- public: public resouces(images). index.html is not required(pre-rendering)
 - styles: css files
 - pages: file-based routing
 
