@@ -1,4 +1,5 @@
 // our-domian.com/
+// import { useEffect, useState } from "react";
 import MeetupList from "../components/meetups/MeetupList";
 
 const DUMMY_MEETUPS = [
@@ -20,8 +21,47 @@ const DUMMY_MEETUPS = [
   },
 ];
 
-function HomePage() {
-  return <MeetupList meetups={DUMMY_MEETUPS} />;
+function HomePage(props) {
+  // React.js
+  // 2 Cycles: empty array(cycle1) -> 2 items array(cycle2)
+  // page source -> <li> is not exist
+  // const [loadedMeetups, setLoadedMeetups] = useState([]);
+
+  // useEffect(() => {
+  //   // send a http request and fetch data
+  //   setLoadedMeetups(DUMMY_MEETUPS);
+  // }, []);
+
+  // return <MeetupList meetups={loadedMeetups} />;
+  return <MeetupList meetups={props.meetups} />;
 }
+
+// 컴포넌트를 호출하기 전에 getStaticProps함수를 먼저 호출한다
+// 비동기 실행
+// file system, connet database
+export async function getStaticProps() {
+  // fetch data from an API
+  // always return object
+  return {
+    // page component's props
+    props: {
+      meetups: DUMMY_MEETUPS,
+    },
+    revalidate: 10,
+  };
+}
+
+// export async function getServerSideProps(context) {
+//   const req = context.req;
+//   const res = context.res;
+
+//   // fetch data from an API
+
+//   return {
+//     props: {
+//       meetups: DUMMY_MEETUPS,
+//     },
+//   };
+// }
 
 export default HomePage;
