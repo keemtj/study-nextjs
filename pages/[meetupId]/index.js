@@ -42,7 +42,8 @@ export async function getStaticPaths() {
   // false:  paths에 정의된 경로가 아니면 동적으로 페이지를 생성하지 않는다. 즉, 404 페이지를 보여준다.
   // 현재는 m1, m2에 대한 paths만 정의되어 있고 fallback은 false이기 때문에 m3로 가게되면 404 페이지를 보여준다
   return {
-    fallback: false,
+    // fallback: false,
+    fallback: "blocking",
     // paths: [
     //   {
     //     params: {
