@@ -1,6 +1,8 @@
 // our-domian.com/
 // import { useEffect, useState } from "react";
 import { MongoClient } from "mongodb";
+import Head from "next/head";
+import { Fragment } from "react";
 import MeetupList from "../components/meetups/MeetupList";
 
 // const DUMMY_MEETUPS = [
@@ -34,7 +36,18 @@ function HomePage(props) {
   // }, []);
 
   // return <MeetupList meetups={loadedMeetups} />;
-  return <MeetupList meetups={props.meetups} />;
+  return (
+    <Fragment>
+      <Head>
+        <title>React Meetups</title>
+        <meta
+          name="description"
+          content="Browse a huge list of highly active React meetups!"
+        />
+      </Head>
+      <MeetupList meetups={props.meetups} />
+    </Fragment>
+  );
 }
 
 // 컴포넌트를 호출하기 전에 getStaticProps함수를 먼저 호출한다
